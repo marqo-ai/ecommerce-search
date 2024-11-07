@@ -1,0 +1,6 @@
+marqo==3.9.0
+requests==2.32.3
+Pillow==11.0.0
+python-dotenv==1.0.1
+gradio==5.5.0
+python-dotenv==1.0.1
