@@ -41,8 +41,6 @@ def search_marqo(query, themes, negatives):
     for hit in res['hits']:
         image_url = hit.get('image_url')
         title = hit.get('title', 'No Title')
-        description = hit.get('description', 'No Description')
-        price = hit.get('price', 'N/A')
         score = hit['_score']
         
         # Fetch the image from the URL
