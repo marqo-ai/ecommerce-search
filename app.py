@@ -48,7 +48,7 @@ def search_marqo(query, themes, negatives):
         image = Image.open(io.BytesIO(response.content))
 
         # Append product details for Gradio display
-        product_info = f'{title}\n{description}\nPrice: {price}\nScore: {score:.4f}'
+        product_info = f'{title}\nScore: {score:.4f}'
         products.append((image, product_info))
 
     return products
