@@ -1,3 +1,16 @@
+<a href="https://www.marqo.ai/blog/introducing-marqos-ecommerce-embedding-models">
+<img src="https://img.shields.io/badge/Model_Release-Blog-blue?logo=font-awesome&logoColor=white&style=flat&logo=pencil-alt" alt="Blog">
+</a>
+<a href="https://huggingface.co/collections/Marqo/marqo-ecommerce-embeddings-66f611b9bb9d035a8d164fbb">
+    <img src="https://img.shields.io/badge/🤗-Hugging_Face-yellow?logo=hugging-face&logoColor=white&style=flat&logo=pencil-alt" alt="Hugging Face">
+</a>
+<a href="https://www.marqo.ai/blog/how-to-build-an-ecommerce-image-search-application">
+<img src="https://img.shields.io/badge/Ecommerce_Search_-Blog-red?logo=font-awesome&logoColor=white&style=flat&logo=pencil-alt" alt="Blog">
+</a>
+<a href="https://colab.research.google.com/drive/1Syl9Gde6LguyMjlpDANetbpvBNb9ddxw?usp=sharing">
+<img src="https://img.shields.io/badge/🤝_-Open_In_Google_Colab-orange?logo=font-awesome&logoColor=white&style=flat&logo=pencil-alt" alt="Blog">
+</a>
+
 # Ecommerce Search with Marqo
 
 This repository contains a multimodal ecommerce search application built using Marqo's [Cloud-based search engine](https://www.marqo.ai/cloud?utm_source=github&utm_medium=organic&utm_campaign=marqo-ai&utm_term=2024-11-07-04-36-utc) and Marqo's state-of-the-art [ecommerce embedding models](https://huggingface.co/collections/Marqo/marqo-ecommerce-embeddings-66f611b9bb9d035a8d164fbb).
