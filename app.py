@@ -34,7 +34,7 @@ def search_marqo(query, themes, negatives):
         query_weights[negatives] = -1.1
     
     # Perform search with Marqo
-    res = mq.index("marqo-ecommerce-b").search(query_weights, limit=10)  # limit to top 10 results
+    res = mq.index("marqo-ecommerce-l").search(query_weights, limit=10)  # limit to top 10 results
 
     # Prepare results
     products = []
@@ -48,7 +48,7 @@ def search_marqo(query, themes, negatives):
         image = Image.open(io.BytesIO(response.content))
 
         # Append product details for Gradio display
-        product_info = f'{title}\nScore: {score:.4f}'
+        product_info = f'{title}'
         products.append((image, product_info))
 
     return products
@@ -66,16 +66,16 @@ with gr.Blocks(css=".orange-button { background-color: orange; color: black; }")
     gr.Markdown("<h1 style='text-align: center;'>Multimodal Ecommerce Search with Marqo's SOTA Embedding Models</h1>")
     gr.Markdown("### This ecommerce search demo uses:")
     gr.Markdown("### 1. [Marqo Cloud](https://www.marqo.ai/cloud) for the Search Engine.")
-    gr.Markdown("### 2. [Marqo-Ecommerce-Embeddings](https://huggingface.co/collections/Marqo/marqo-ecommerce-embeddings-66f611b9bb9d035a8d164fbb) for the multimodal embedding model.")
-    gr.Markdown("### 3. 100k products from the [Marqo-GS-10M](https://huggingface.co/datasets/Marqo/marqo-GS-10M) dataset.")
+    gr.Markdown("### 2. [Marqo-Ecommerce-Embeddings](https://huggingface.co/collections/Marqo/marqo-ecommerce-embeddings-66f611b9bb9d035a8d164fbb) for the multimodal embedding model. Specifically, `marqo-ecommerce-L`.")
+    gr.Markdown("### 3. 200k sample of products across all categories from the [Google Shopping](https://huggingface.co/datasets/Marqo/google-shopping-general-eval) dataset.")
 
     gr.Markdown("")
     # gr.Markdown("If you can't find the item you're looking for, let a member of our team know and we'll add it to the dataset.")
 
     with gr.Row():
-        query_input = gr.Textbox(placeholder="Green dress shirt", label="Search Query")
-        themes_input = gr.Textbox(placeholder="Short sleeves", label="More of...")
-        negatives_input = gr.Textbox(placeholder="Patterns", label="Less of...")
+        query_input = gr.Textbox(placeholder="coffee machine", label="Search Query")
+        themes_input = gr.Textbox(placeholder="silver", label="More of...")
+        negatives_input = gr.Textbox(placeholder="pods", label="Less of...")
 
     with gr.Row():
         search_button = gr.Button("Submit", elem_classes="orange-button")
