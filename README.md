@@ -49,6 +49,18 @@ We set up this ecommerce search demo with the ability to deploy onto Hugging Fac
 
 To see this demo live on Hugging Face, visit our [Ecommerce Search Space](https://huggingface.co/spaces/Marqo/Ecommerce-Search)!
 
+## Step 5: Clean Up
+If you follow the steps in this guide, you will create an index with CPU large inference and a basic storage shard. This index will cost $0.38 per hour. When you are done with the index you can delete it with the following code:
+```python
+import marqo
+import os
+
+mq = marqo.Client("https://api.marqo.ai", api_key=os.getenv("MARQO_API_KEY"))
+mq.delete_index(os.getenv(index_name)
+```
+
+**If you do not delete your index you will continue to be charged for it.**
+
 ## Running This Project Locally
 If you'd prefer to run this project locally rather than with Marqo Cloud, you can do so using our [open source version of Marqo](https://github.com/marqo-ai). To run Marqo using Docker:
 ```bash
