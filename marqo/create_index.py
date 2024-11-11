@@ -15,19 +15,19 @@ mq = marqo.Client("https://api.marqo.ai", api_key=api_key)
 
 # Define settings for the Marqo index
 settings = {
-    "type": "unstructured",  # Set the index type as unstructured data
-    "model": "Marqo/marqo-ecommerce-embeddings-B",  # Specify model name
-    "modelProperties": {  # Set model properties to use Marqo's ecommerce embeddings on HF Hub
-        "name": "hf-hub:Marqo/marqo-ecommerce-embeddings-B",
-        "dimensions": 768,  # Dimensionality of the embedding model
-        "type": "open_clip"  # Model type (OpenCLIP architecture)
+    "type": "unstructured",
+    "model": "Marqo/marqo-ecommerce-embeddings-L",  # Specify alternative model
+    "modelProperties": {
+        "name": "hf-hub:Marqo/marqo-ecommerce-embeddings-L",
+        "dimensions": 1024,  # Larger dimensionality for embeddings
+        "type": "open_clip"
     },
     "treatUrlsAndPointersAsImages": True,  # Enable image URLs as image sources
     "inferenceType": "marqo.CPU.large",  # Inference type for Marqo Cloud resources
 }
 
 # Specify the name of the index
-index_name = "marqo-ecommerce-b"
+index_name = "marqo-ecommerce-l"
 
 # Delete the existing index if it already exists to avoid conflicts
 try:
@@ -38,19 +38,15 @@ except:
 # Create a new index with the specified settings
 mq.create_index(index_name, settings_dict=settings)
 
-# Alternative model configuration: marqo-ecommerce-embeddings-L with larger dimensions
-# Uncomment below to use a different model with 1024 dimensions
-
+# Alternative model configuration: marqo-ecommerce-embeddings-B 
 # settings = {
-#     "type": "unstructured",
-#     "model": "Marqo/marqo-ecommerce-embeddings-L",  # Specify alternative model
-#     "modelProperties": {
-#         "name": "hf-hub:Marqo/marqo-ecommerce-embeddings-L",
-#         "dimensions": 1024,  # Larger dimensionality for embeddings
-#         "type": "open_clip"
+#     "type": "unstructured",  # Set the index type as unstructured data
+#     "model": "Marqo/marqo-ecommerce-embeddings-B",  # Specify model name
+#     "modelProperties": {  # Set model properties to use Marqo's ecommerce embeddings on HF Hub
+#         "name": "hf-hub:Marqo/marqo-ecommerce-embeddings-B",
+#         "dimensions": 768,  # Dimensionality of the embedding model
+#         "type": "open_clip"  # Model type (OpenCLIP architecture)
 #     },
 #     "treatUrlsAndPointersAsImages": True,  # Enable image URLs as image sources
+#     "inferenceType": "marqo.CPU.large",  # Inference type for Marqo Cloud resources
 # }
-
-# Create index with the alternative model settings
-# mq.create_index("test-e-commerce-l", settings_dict=settings)

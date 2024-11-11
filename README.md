@@ -23,7 +23,7 @@ pip install -r requirements.txt
 Now you're ready to create your Marqo Index!
 
 ## Step 2: Create Your Marqo Index
-For this search demo, we will be using Marqo's state-of-the-art ecommerce embedding models, `marqo-ecommerce-embeddings-B` and `marqo-ecommerce-embeddings-L`. The file `marqo/create_index.py` provides code for each of these models. Feel free to change this to suit whichever model you want. By default, this search demo will use `marqo-ecommerce-embeddings-B`.
+For this search demo, we will be using Marqo's state-of-the-art ecommerce embedding models, `marqo-ecommerce-embeddings-B` and `marqo-ecommerce-embeddings-L`. The file `marqo/create_index.py` provides code for each of these models. Feel free to change this to suit whichever model you want. By default, this search demo will use `marqo-ecommerce-embeddings-L`. For more information on these models, see our [Hugging Face](https://huggingface.co/collections/Marqo/marqo-ecommerce-embeddings-66f611b9bb9d035a8d164fbb).
 
 To create your index:
 ```bash
@@ -31,7 +31,7 @@ python3 marqo/create_index.py
 python3 marqo/add_documents.py
 ```
 
-If you visit [Marqo Cloud](https://cloud.marqo.ai/indexes/), you will be able to see the status of your index (and when it's ready to add documents to). The second line here adds data from `data/marqo-gs_100k` which is a subset of the Marqo-GS-10M dataset. To check the status of your index when documents are being added, you can run:
+If you visit [Marqo Cloud](https://cloud.marqo.ai/indexes/), you will be able to see the status of your index (and when it's ready to add documents to). The second line here adds data from `data/gs-all-cat-sample-200k.csv` which is a 200k sample of products across all categories from the [Google Shopping](https://huggingface.co/datasets/Marqo/google-shopping-general-eval) dataset. To check the status of your index when documents are being added, you can run:
 ```bash
 python3 marqo/get_stats.py
 ```
