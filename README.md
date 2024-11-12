@@ -72,7 +72,7 @@ import marqo
 import os
 
 mq = marqo.Client("https://api.marqo.ai", api_key=os.getenv("MARQO_API_KEY"))
-mq.delete_index(os.getenv(index_name)
+mq.delete_index(index_name)
 ```
 
 **If you do not delete your index you will continue to be charged for it.**
