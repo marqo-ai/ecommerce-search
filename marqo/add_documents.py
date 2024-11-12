@@ -15,7 +15,7 @@ mq = marqo.Client("https://api.marqo.ai", api_key=api_key)
 # For more information on running Marqo with Docker, see our GitHub: https://github.com/marqo-ai/marqo
 
 # Read the CSV data file
-path_to_data = "data/gs-all-cat-sample-200k.csv" 
+path_to_data = "data/marqo-gs_100k.csv"
 df = pd.read_csv(path_to_data)
 
 # Convert the data into the required document format
@@ -23,9 +23,10 @@ print("Converting data into the required document format...")
 documents = []
 for index, row in df.iterrows():
     document = {
-        "category": row["category"],
-        "image_url": row["image_url"],
+        "image_url": row["image"],
+        "query": row["query"],
         "title": row["title"],
+        "score": row["score"],
     }
     documents.append(document)
     
@@ -41,13 +42,13 @@ for i in range(0, len(documents), batch_size):
     batch = documents[i:i + batch_size]
     try:
         print(f"Uploading batch {i // batch_size + 1} (rows {i + 1} to {i + len(batch)})...")
-        res = mq.index("marqo-ecommerce-l").add_documents(
+        res = mq.index("marqo-ecommerce-search").add_documents(
             batch,
             client_batch_size=batch_size,
             mappings={
                 "image_title_multimodal": {
                     "type": "multimodal_combination",
-                    "weights": {"category": 0.1, "title": 0.1, "image_url": 0.8},
+                    "weights": {"title": 0.1, "query": 0.1, "image_url": 0.8},
                 }
             },
             tensor_fields=["image_title_multimodal"],
