@@ -27,7 +27,7 @@ settings = {
 }
 
 # Specify the name of the index
-index_name = "marqo-ecommerce-l"
+index_name = "marqo-ecommerce-search"
 
 # Delete the existing index if it already exists to avoid conflicts
 try:

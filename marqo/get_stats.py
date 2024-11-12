@@ -15,7 +15,7 @@ mq = marqo.Client("https://api.marqo.ai", api_key=api_key)   # To find your Marq
 # For more information on running Marqo with Docker, see our GitHub: https://github.com/marqo-ai/marqo
 
 # Define the name of the index to retrieve statistics from
-index_name = "marqo-ecommerce-l"
+index_name = "marqo-ecommerce-search"
 
 # Fetch statistics for the specified index
 results = mq.index(index_name).get_stats()

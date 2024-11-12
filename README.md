@@ -31,7 +31,7 @@ python3 marqo/create_index.py
 python3 marqo/add_documents.py
 ```
 
-If you visit [Marqo Cloud](https://cloud.marqo.ai/indexes/), you will be able to see the status of your index (and when it's ready to add documents to). The second line here adds data from `data/gs-all-cat-sample-200k.csv` which is a 200k sample of products across all categories from the [Google Shopping](https://huggingface.co/datasets/Marqo/google-shopping-general-eval) dataset. To check the status of your index when documents are being added, you can run:
+If you visit [Marqo Cloud](https://cloud.marqo.ai/indexes/), you will be able to see the status of your index (and when it's ready to add documents to). The second line here adds data from `data/marqo-gs_100k.csv` which is a 100k subset of the [Marqo-GS-10M](https://huggingface.co/datasets/Marqo/marqo-GS-10M) dataset. Note, we also have a csv containing 200k items across all categories in the Google Shopping dataset. Feel free to use this dataset if you'd prefer. To check the status of your index when documents are being added, you can run:
 ```bash
 python3 marqo/get_stats.py
 ```
